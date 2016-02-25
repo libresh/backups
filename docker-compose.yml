@@ -1,0 +1,8 @@
+backup:
+  hostname: backups 
+  image: indiehosters/backups
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./root:/root
+    - /data/backups/local:/backups
+    - /data/domains:/domains

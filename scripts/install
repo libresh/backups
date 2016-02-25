@@ -1,0 +1,21 @@
+#!/bin/bash -eux
+
+source ./env
+
+gpg --homedir ./root/ --batch --gen-key <<EOT
+%echo Generating a default key
+Key-Type: default
+Key-Length: 2048
+Subkey-Type: default
+Name-Real: root `hostname`
+Name-Comment: No comment
+Name-Email: root@`hostname`
+Expire-Date: 0
+Passphrase: $PASSPHRASE
+%pubring `hostname`.pub
+%secring `hostname`.sec
+%commit
+%echo done
+EOT
+
+echo "We advise you to backup this key in a safe place"
