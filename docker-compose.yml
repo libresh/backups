@@ -1,6 +1,8 @@
 backup:
   hostname: backups 
   image: indiehosters/backups
+  environment:
+    - PASSPHRASE
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./root:/root
