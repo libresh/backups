@@ -5,6 +5,6 @@ backup:
     - PASSPHRASE
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - ./root:/root
+    - ./conf/root:/root
     - /data/backups/local:/backups
     - /data/domains:/domains
