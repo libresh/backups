@@ -7,4 +7,4 @@ backup:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./conf/root:/root
     - /data/backups/local:/backups
-    - /data/domains:/domains
+    - /data/domains:/domains:ro
