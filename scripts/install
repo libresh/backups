@@ -19,4 +19,15 @@ Passphrase: $PASSPHRASE
 %echo done
 EOT
 
-echo "We advise you to backup this key in a safe place"
+echo "We advise you to backup this key and the PASSPHRASE in a safe place"
+
+echo "configuring ssh..."
+mkdir ./conf/ssh
+ssh-keygen -f ./conf/ssh/id_rsa -N '' -t rsa
+
+mkdir ./conf/etc-ssh
+cd ./conf/etc-ssh
+ssh-keygen -f ./ssh_host_rsa_key -N '' -t rsa
+cp /etc/ssh/moduli .
+cp /etc/ssh/ssh_config .
+cp /etc/ssh/sshd_config .

@@ -8,3 +8,11 @@ backup:
     - ./conf/root:/root
     - /data/backups/local:/backups
     - /data/domains:/domains:ro
+sshd:
+  image: indiehosters/sshd
+  volumes:
+    - /data/backups/local:/share:ro
+    - ./conf/ssh:/root/.ssh
+    - ./conf/etc-ssh:/etc/ssh
+  ports:
+    - "2225:22"
