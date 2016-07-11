@@ -1,9 +1,12 @@
 #!/bin/bash -eux
 
-PASSPHRASE=`tr -dc A-Za-z0-9_ < /dev/urandom | head -c 20 | xargs`
-echo "PASSPHRASE=${PASSPHRASE}" >> ./env
+mkdir -p ./conf/root
+chmod -R  700 ./conf
 
-gpg --homedir ./conf/root/ --batch --gen-key <<EOT
+PASSPHRASE=`tr -dc A-Za-z0-9_ < /dev/urandom | head -c 20 | xargs`
+echo "PASSPHRASE=${PASSPHRASE}" > ./env
+
+gpg --homedir ./conf/root --batch --gen-key <<EOT
 %echo Generating a default key
 Key-Type: default
 Key-Length: 2048
