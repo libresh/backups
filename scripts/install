@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-mkdir -p ./conf/root
+mkdir -p ./conf/root/.ssh
 chmod -R  700 ./conf
 
 PASSPHRASE=`tr -dc A-Za-z0-9_ < /dev/urandom | head -c 20 | xargs`
@@ -9,5 +9,4 @@ echo "PASSPHRASE=${PASSPHRASE}" > ./env
 echo "We advise you to backup this PASSPHRASE in a safe place"
 
 echo "configuring ssh..."
-mkdir ./conf/ssh
-ssh-keygen -f ./conf/ssh/id_rsa -N '' -t rsa
+ssh-keygen -f ./conf/root/.ssh/id_rsa -N '' -t rsa
