@@ -6,31 +6,8 @@ chmod -R  700 ./conf
 PASSPHRASE=`tr -dc A-Za-z0-9_ < /dev/urandom | head -c 20 | xargs`
 echo "PASSPHRASE=${PASSPHRASE}" > ./env
 
-gpg --homedir ./conf/root --batch --gen-key <<EOT
-%echo Generating a default key
-Key-Type: default
-Key-Length: 2048
-Subkey-Type: default
-Name-Real: root `hostname`
-Name-Comment: No comment
-Name-Email: root@`hostname`
-Expire-Date: 0
-Passphrase: $PASSPHRASE
-%pubring `hostname`.pub
-%secring `hostname`.sec
-%commit
-%echo done
-EOT
-
-echo "We advise you to backup this key and the PASSPHRASE in a safe place"
+echo "We advise you to backup this PASSPHRASE in a safe place"
 
 echo "configuring ssh..."
 mkdir ./conf/ssh
 ssh-keygen -f ./conf/ssh/id_rsa -N '' -t rsa
-
-mkdir ./conf/etc-ssh
-cd ./conf/etc-ssh
-ssh-keygen -f ./ssh_host_rsa_key -N '' -t rsa
-cp /etc/ssh/moduli .
-cp /etc/ssh/ssh_config .
-cp /etc/ssh/sshd_config .
