@@ -17,7 +17,8 @@ And then:
 cd /system
 git clone https://github.com/indiehosters/backups
 cd backups && ./scripts/install
-#edit the env with the BACKUP_DESTINATION=user@host:port
+# edit the env with the BACKUP_DESTINATION=user@host:port
+# add the ssh key for backup container (/system/backups/conf/root/.ssh/id_rsa.pub) to autorized_hosts on the backup server
 # add the remote key to known hosts:
 docker run -it -v /system/backups/conf/root:/root debian ssh -o "StrictHostKeyChecking no" -o "BatchMode yes" -o "HostKeyAlgorithms=ssh-rsa" $USER@$HOST -p$PORT exit
 systemctl start s@backups
