@@ -9,4 +9,4 @@ backup:
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./conf/root:/root
-    - /data/domains:/domains:ro
+    - /data/domains:/domains
