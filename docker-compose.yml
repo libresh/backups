@@ -4,6 +4,7 @@ backup:
   environment:
     - PASSPHRASE
     - FULL_FREQUENCY=7D
+    - INC_FREQUENCY=14400
     - PROTOCOL=sftp
     - BACKUP_DESTINATION
   volumes:
