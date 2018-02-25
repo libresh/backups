@@ -9,7 +9,7 @@ It goes to every domain, run the `pre-backup` script if present (it is usually a
 
 ## How to use
 
-First make sure you have [LibrePaaS](https://github.com/indiehosters/LibrePaaS) installed.
+First make sure you have [libre.sh](https://github.com/indiehosters/libre.sh) installed.
 
 And then:
 
