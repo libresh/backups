@@ -1,3 +1,7 @@
+/!\ deprecated in favor of https://github.com/libresh/borg-server
+
+If you use it and want to maintain it, let me know, I'll transfer ownership to you or give you rights to manage it here.
+
 # backups
 
 It backups domains \o/.
